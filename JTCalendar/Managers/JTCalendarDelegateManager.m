@@ -40,10 +40,6 @@
     NSString *text = nil;
     
     if(date){
-        NSCalendar *calendar = _manager.dateHelper.calendar;
-        NSDateComponents *comps = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth fromDate:date];
-        NSInteger currentMonthIndex = comps.month;
-        
         static NSDateFormatter *dateFormatter = nil;
         if(!dateFormatter){
             dateFormatter = [_manager.dateHelper createDateFormatter];
@@ -52,7 +48,7 @@
         dateFormatter.timeZone = _manager.dateHelper.calendar.timeZone;
         dateFormatter.locale = _manager.dateHelper.calendar.locale;
         
-        text = [dateFormatter stringFromDate : date];
+        text = [[dateFormatter stringFromDate : date] capitalizedString];
     }
         
     [(UILabel *)menuItemView setText:text];
