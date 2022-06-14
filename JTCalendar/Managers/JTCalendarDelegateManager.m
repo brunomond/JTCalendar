@@ -52,14 +52,11 @@
         dateFormatter.timeZone = _manager.dateHelper.calendar.timeZone;
         dateFormatter.locale = _manager.dateHelper.calendar.locale;
         
-        while(currentMonthIndex <= 0){
-            currentMonthIndex += 12;
-        }
-        
-        text = [[dateFormatter standaloneMonthSymbols][currentMonthIndex - 1] capitalizedString];
+        text = [dateFormatter stringFromDate : date];
     }
         
     [(UILabel *)menuItemView setText:text];
+    [(UILabel *)menuItemView setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]];
 }
 
 #pragma mark - Content view

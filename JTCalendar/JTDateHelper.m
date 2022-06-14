@@ -48,7 +48,7 @@
     
     dateFormatter.timeZone = self.calendar.timeZone;
     dateFormatter.locale = self.calendar.locale;
-    
+    dateFormatter.dateFormat = @"MMMM - yyyy";
     return dateFormatter;
 }
 
